@@ -1,60 +1,68 @@
 const mongoose = require('mongoose');
-
-const productSchema = mongoose.Schema({
-    brand:{
-        type:String,
-        required:true,
-        trim: true
+const Schema=mongoose.Schema;
+const productSchema =new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
     },
-    size:[{
-        type:String,
-        required:true,
-    }],
-    quantity:{
-        type:number,
-        required:true,
+    price: {
+        type: Number,
+        required: true
     },
-    color:[{
-        name:{
-            type:String,
-            required:true
-        },
-        image1:{
-            type:String,
-            required:true
-        },
-        image2:{
-            type:String,
-        },
-        image3:{
-            type:String,
-        },
-        image4:{
-            type:String,
-        }
-    }],
-    price:{
-        type:number,
-        required:true,
+    description: {
+        type: String,
+        required: true
     },
-    gender:{
+    quantity: {
+        type: Number,
+        required: true,
+        default: 1
+    },
+    brand: {
+        type: String,
+        required: true
+    },
+    discount: {
+        type: String,
+        required: true
+    },
+    rating: {
+        type: Number,
+        required: true
+    },
+    categoryType:{
         type:String,
         required:true
+    }
+    ,
+  
+    size: [{
+        size: {
+            type: Number
+        }
+    }],
+
+    color: [{
+        color: {
+            type: String
+        }
+    }],
+
+    frontImage: {
+        type: String,
+        required: true
     },
-    types:{
-        type:String,
-        requried:true
+    bottomImage: {
+        type: String
     },
-    discount:{
-        type:number,
+    leftImage: {
+        type: String
     },
-    rating:{
-        type:number,
-        requred:true
+    rightImage: {
+        type: String
     },
-    discription:{
-        type:String,
-    },
+
+    catId: Schema.Types.ObjectId
 });
 
-module.exports = mongoose.model('products',productSchema);
+module.exports = mongoose.model('product', productSchema);

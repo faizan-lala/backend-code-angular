@@ -1,34 +1,13 @@
 const mongoose = require('mongoose');
 const categorySchema = mongoose.Schema({
-    gender:[{
-        name:{
-            type:String,
-        },
-        image:{
-            type:String,
-            required:true
-        },
-    }],
-    discount:[{
+    categoryName:{
         type:String,
-    }],
-    color:[{
+        required:true
+    },
+    categoryImage:{
         type:String,
-    }],
-    size:[{
-        type:String,
-    }],
-    brands:[{
-        name:{
-            type:String,
-        },
-        image:{
-            type:String,
-        }
-    }],
-    types:[{
-        type:String,
-    }]
+        required:true
+    }
 });
 
-module.exports = mongoose.model('categories',categorySchema);
+module.exports = mongoose.model('category', categorySchema);

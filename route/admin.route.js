@@ -18,7 +18,7 @@ var storage = multer.diskStorage(
 
 var upload = multer({ storage: storage });
 
-router.post('/signup',upload.single('adminImage'),adminController.SignUp);
+router.post('/signup',adminController.SignUp);
 router.post('/signin',adminController.SignIn);
 
 module.exports=router;

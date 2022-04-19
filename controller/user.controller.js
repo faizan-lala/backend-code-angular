@@ -6,14 +6,13 @@ exports.SignUp = (request, response) => {
     userModel.create({
         name: request.body.name,
         email: request.body.email,
-        image: "http:localhost:3000/images/" + request.file.filename,
         mobile: request.body.mobile,
         password: request.body.password,
     
     }).then(result => {
         return response.status(200).json(result);
     }).catch(err => {
-        return response.status(500).json({ err: 'Something went wrong' });
+        return response.status(500).json({ message: 'Something went wrong' });
     })
 }
 
@@ -36,6 +35,6 @@ exports.SignIn = (request, response) => {
         else
             return response.status(404).json({ message: 'invalid user' });
     }).catch(err => {
-        return response.status(500).json({ err: 'Something went wrong' })
+        return response.status(500).json({ message: 'Something went wrong' })
     })
 }

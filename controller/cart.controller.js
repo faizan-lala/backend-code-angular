@@ -24,7 +24,7 @@ cart.save().then(result=>{
 
 exports.viewCart=(request,response)=>{
     let uId=request.body.uId;
-    cartModel.findOne({userId:uId}).then(result=>{
+    cartModel.findOne({userId:uId}).populate("productlist").then(result=>{
         return response.status(200).json(result);
     }).catch(err=>{
         return response.status(500).json({message:'Oops ! Something went wrong'});

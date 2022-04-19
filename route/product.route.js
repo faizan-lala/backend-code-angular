@@ -16,8 +16,8 @@ var storage = multer.diskStorage(
 
 var upload = multer({ storage: storage });
 
-router.post('/add',upload.array('productImages'),productController.Add);
-router.get('/view-list',productController.viewProduct);
-router.delete('/delete-product',productController.deleteProduct);
-router.post('/update-product',upload.array('productImages'),productController.updateProduct)
+router.post('/add',token.verifyToken,upload.array('productImages'),productController.Add);
+router.get('/view-product',productController.viewProduct);
+router.delete('/delete-product',token.verifyToken,productController.deleteProduct);
+router.post('/update-product',token.verifyToken,upload.array('productImages'),productController.updateProduct)
 module.exports=router;

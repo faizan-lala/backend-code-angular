@@ -4,7 +4,7 @@ const categoryModel = require('../model/categories.model');
 exports.Add = (request, response) => {
     categoryModel.create({
         categoryName: request.body.categoryName,
-        categoryImage: "http://localhost:3000/images/" + request.file.filename
+        categoryImage: "https://firebasestorage.googleapis.com/v0/b/footwearshop-535ae.appspot.com/o/" + request.file.filename+"?alt=media&token=abcdefg"
     }).then(result => {
         return response.status(200).json(result);
     }).catch(err => {
@@ -28,7 +28,7 @@ exports.deleteCategory = (request, response) => {
         else
             return response.status(204).json({ message: 'not deleted...' });
     }).catch(err => {
-        return response.status(500).json({ err: 'Oops! Something went wrong...' });
+        return response.status(500).json({ message: 'Oops! Something went wrong...' });
     })
 }
 
@@ -40,7 +40,7 @@ exports.deleteCategory = (request, response) => {
         else
             return response.status(204).json({ message: 'not deleted...' });
     }).catch(err => {
-        return response.status(500).json({ err: 'Oops! Something went wrong...' });
+        return response.status(500).json({ message: 'Oops! Something went wrong...' });
     })
 }
 
@@ -57,7 +57,7 @@ exports.updateCategory = (request, response) => {
             else
                 return response.status(204).json({ message: 'not updated...' });
         }).catch(err => {
-            return response.status(500).json({ err: 'Oops! Something went wrong...' });
+            return response.status(500).json({ message: 'Oops! Something went wrong...' });
         })
 }
 

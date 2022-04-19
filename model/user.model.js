@@ -8,10 +8,7 @@ const userSchema = mongoose.Schema({
         type:String,
         requried:true
     },
-    image:{
-        type:String,
-        required:true
-    },
+ 
     mobile:{
         type:String,
         required:true

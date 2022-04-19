@@ -2,11 +2,11 @@ const express=require('express');
 const router=express.Router();
 const multer=require('multer');
 
-module.exports=router;
+// module.exports=router;
 
-// const express = require("express");
-// const router = express.Router();
-// const orderController = require("../controller/orderController");
+
+
+const orderController = require("../controller/order.controller");
 
 // router.post("/place",orderController.place);
 // router.get("/view/:uid",orderController.view);
@@ -18,33 +18,8 @@ module.exports=router;
 // const routeCache = require('route-cache');
 // const router = express.Router();
 
-// router.post('/place-order', body('mobile').not().isEmpty(),
-//     body('orderList').not().isEmpty(), body('address').not().isEmpty(),
-//     body('total').not().isEmpty(), async(request, response) => {
-//         const { address, mobile, total } = request.body;
-//         // const {userId} = request.user.id;
-//         const orderItem = { address, mobile, total };
-//         console.log(request.body);
-//         console.log(orderItem);
+router.post('/place-order', orderController.placeOrder);
 
-//         var order = new Order(orderItem);
-//         for (i = 0; i < request.body.orderList.length; i++) {
-//             var pid = request.body.orderList[i].pId;
-//             var qty2 = request.body.orderList[i].qty;
-//             order.orderList.push({ pid: pid, quantity: qty2 });
-//         }
-
-
-//         order.save()
-//             .then(result => {
-//                 console.log(result);
-//                 //const {userId} = request.user.id
-//                 return response.status(500).json({ err: 'Server error' });
-//             }).catch(err => {
-//                 console.log(err);
-//                 return response.status(500).json({ err: 'Server error' });
-//             });
-//     });
 // router.get('/view-order', routeCache.cacheSeconds(20), (request, response) => {
 //     Order.find().then(res => {
 //         console.log(result);
@@ -55,6 +30,8 @@ module.exports=router;
 //     })
 
 // });
+
+
 // router.get('/p-order/:oid', routeCache.cacheSeconds(20), (request, response) => {
 //     Order.findOne({ oid: request.params.oid }).then(result => {
 //         console.log(result);
@@ -63,6 +40,9 @@ module.exports=router;
 //         return response.status(500).json({ err: 'Server error' });
 //     });
 // });
+
+
+
 // router.post('/edit-order/:oid', async(request, response) => {
 //     console.log(request.body);
 //     const { address, mobile, shipping, payment } = request.body
@@ -84,6 +64,9 @@ module.exports=router;
 //     return response.status(200).json(order);
 
 // })
+
+
+
 // router.get('/sort', routeCache.cacheSeconds(20), (request, response) => {
 //     Order.find({}).sort([
 //         ['date', -1]
@@ -94,4 +77,4 @@ module.exports=router;
 //     });
 
 // })
-// module.exports = router;
+module.exports = router;

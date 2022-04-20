@@ -49,7 +49,7 @@ exports.updateCategory = (request, response) => {
         {
             $set: {
                 categoryName: request.body.categoryName,
-                categoryImage: "http://localhost:3000/images/" + request.file.filename
+                categoryImage:  "https://firebasestorage.googleapis.com/v0/b/footwearshop-535ae.appspot.com/o/" + request.file.filename+"?alt=media&token=abcdefg"
             }
         }).then(result => {
             if (result.modifiedCount)

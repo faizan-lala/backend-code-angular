@@ -4,7 +4,7 @@ const categoryModel = require('../model/categories.model');
 exports.Add = (request, response) => {
     categoryModel.create({
         categoryName: request.body.categoryName,
-        categoryImage: "https://firebasestorage.googleapis.com/v0/b/footwearshop-535ae.appspot.com/o/" + request.file.filename+"?alt=media&token=abcdefg"
+        categoryImage: "https://firebasestorage.googleapis.com/v0/b/footwearshop-535ae.appspot.com/o/" + request.files[0].filename+"?alt=media&token=abcdefg"
     }).then(result => {
         return response.status(200).json(result);
     }).catch(err => {

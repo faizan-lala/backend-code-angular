@@ -15,7 +15,7 @@ var storage = multer.diskStorage(
 
 var upload = multer({ storage: storage });
 
-router.post('/add',token.verifyToken,upload.single("categoryImage"),fireBase.fireBaseStorage,categoryController.Add);
+router.post('/add',token.verifyToken,upload.array("categoryImage"),fireBase.fireBaseStorage,categoryController.Add);
 router.get('/view-category',categoryController.viewCategory);
 router.delete('/delete-category',token.verifyToken,categoryController.deleteCategory);
 router.post('/update-category',token.verifyToken,upload.single("categoryImage"),categoryController.updateCategory)

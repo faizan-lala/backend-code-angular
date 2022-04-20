@@ -24,13 +24,13 @@ const productSchema =new mongoose.Schema({
     },
     discount: {
         type: String,
-        required: true
+
     },
     rating: {
         type: Number,
-        required: true
+    
     },
-    categoryType:{
+    productType:{
         type:String,
         required:true
     }

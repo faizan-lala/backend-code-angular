@@ -1,7 +1,7 @@
 const { application } = require('express');
 const express=require('express');
 const router=express.Router();
-
+const fireBase=require('../middleware/firebase');
 const jwt = require('jsonwebtoken');
 const token=require('../middleware/token.varification');
 const productController=require('../controller/product.controller');
@@ -16,7 +16,7 @@ var storage = multer.diskStorage(
 
 var upload = multer({ storage: storage });
 
-router.post('/add',token.verifyToken,upload.array('productImages'),productController.Add);
+router.post('/add',token.verifyToken,upload.array('productImages'),fireBase.fireBaseStorage,productController.Add);
 router.get('/view-product',productController.viewProduct);
 router.delete('/delete-product',token.verifyToken,productController.deleteProduct);
 router.post('/update-product',token.verifyToken,upload.array('productImages'),productController.updateProduct)

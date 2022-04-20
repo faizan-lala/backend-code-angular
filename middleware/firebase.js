@@ -13,8 +13,9 @@ let bucketName="gs://footwearshop-535ae.appspot.com";
 
 exports.fireBaseStorage=async (request,response,next)=>{
     try{
+        for(i=0;i<4;i++){
         console.log("In Firebase try block")
-        await storage.bucket(bucketName).upload(path.join(__dirname,'../',"public/images/")+request.file.filename,{
+        await storage.bucket(bucketName).upload(path.join(__dirname,'../',"public/images/")+request.files[i].filename,{
             gzip:true,
             metadata:{
                 metadata:{
@@ -24,6 +25,7 @@ exports.fireBaseStorage=async (request,response,next)=>{
         })
         next();
     }
+}
     catch(err){
         console.log(err);
     }

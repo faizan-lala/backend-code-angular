@@ -15,12 +15,12 @@ exports.Add=(request,response)=>{
         discount:request.body.discount,
         rating:request.body.rating,
         brand:request.body.brand,
-        categoryType:request.body.categoryType,
+        
         productType:request.body.productType,
-        frontImage: "https://firebasestorage.googleapis.com/v0/b/footwearshop-535ae.appspot.com/o/" + request.file.filename+"?alt=media&token=abcdefg",
-        bottomImage: "https://firebasestorage.googleapis.com/v0/b/footwearshop-535ae.appspot.com/o/" + request.file.filename+"?alt=media&token=abcdefg",
-        leftImage: "https://firebasestorage.googleapis.com/v0/b/footwearshop-535ae.appspot.com/o/" + request.file.filename+"?alt=media&token=abcdefg",
-        rightImage: "https://firebasestorage.googleapis.com/v0/b/footwearshop-535ae.appspot.com/o/" + request.file.filename+"?alt=media&token=abcdefg",
+        frontImage: "https://firebasestorage.googleapis.com/v0/b/footwearshop-535ae.appspot.com/o/" + request.files[0].filename+"?alt=media&token=abcdefg",
+        bottomImage: "https://firebasestorage.googleapis.com/v0/b/footwearshop-535ae.appspot.com/o/" + request.files[1].filename+"?alt=media&token=abcdefg",
+        leftImage: "https://firebasestorage.googleapis.com/v0/b/footwearshop-535ae.appspot.com/o/" + request.files[2].filename+"?alt=media&token=abcdefg",
+        rightImage: "https://firebasestorage.googleapis.com/v0/b/footwearshop-535ae.appspot.com/o/" + request.files[3].filename+"?alt=media&token=abcdefg",
         catId: request.body.catId,
         size:size,
         color:color

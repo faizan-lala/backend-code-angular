@@ -43,6 +43,14 @@ exports.viewProduct=(request,response)=>{
     })
 }
 
+exports.showProduct=(request,response)=>{
+    productModel.find({catId:request.body.catId}).then(result=>{
+        return response.status(200).json(result);
+    }).catch(err=>{
+        return response.status(500).json({message:'Oops ! Something went wrong'});
+    })
+}
+
 exports.deleteProduct=(request,response)=>{
     productModel.deleteOne({
         _id:request.body.id

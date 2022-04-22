@@ -22,5 +22,5 @@ router.delete('/delete-product',token.verifyToken,productController.deleteProduc
 router.post('/update-product',token.verifyToken,upload.array('productImages'),productController.updateProduct);
 
 // http://localhost:3000/product/show-products
-router.get('/show-products',productController.showProduct);
+router.post('/show-products',productController.showProduct);
 module.exports=router;
